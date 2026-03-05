@@ -17,7 +17,7 @@ function createWindow() {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,
             nodeIntegration: false,
-            webSecurity: false // Permitir acceso a archivos locales para el desarrollo
+            webSecurity: false // Access to local files
         },
         titleBarStyle: 'hiddenInset'
     });
