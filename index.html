@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDFcito</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo-container">
+                <img src="img/pdfcito.png" alt="PDFcito Logo" id="app-logo">
+                <h1>PDFcito</h1>
+            </div>
+            <p class="subtitle">Comprime tus PDFs con un solo clic</p>
+        </header>
+
+        <main>
+            <div id="drop-zone" class="drop-zone">
+                <div class="drop-content">
+                    <svg viewBox="0 0 24 24" class="icon-upload">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                    <p id="drop-text">Arrastra tu PDF aquí o haz clic para seleccionar</p>
+                    <input type="file" id="file-input" accept=".pdf" hidden>
+                </div>
+            </div>
+
+            <div id="file-details" class="file-details hidden">
+                <div class="file-info-card">
+                    <span class="file-name" id="file-name">archivo.pdf</span>
+                    <span class="file-size" id="original-size">0 MB</span>
+                </div>
+
+                <div class="settings-panel">
+                    <div class="quality-selector">
+                        <label for="quality">Calidad de compresión:</label>
+                        <select id="quality">
+                            <option value="screen">Baja (Pantalla - 72 dpi)</option>
+                            <option value="ebook" selected>Media (eBook - 150 dpi)</option>
+                            <option value="printer">Alta (Impresora - 300 dpi)</option>
+                            <option value="prepress">Máxima (Pre-prensa - 300 dpi)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="estimation-card">
+                    <p>Tamaño estimado: <strong id="estimated-size">0 MB</strong></p>
+                </div>
+
+                <button id="compress-btn" class="primary-btn">Comprimir ahora</button>
+            </div>
+
+            <div id="processing" class="processing hidden">
+                <div class="spinner"></div>
+                <p>Comprimiendo PDF...</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div id="result" class="result hidden">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                </div>
+                <h3>¡Compresión completada!</h3>
+                <div class="result-stats">
+                    <div class="stat">
+                        <span>Original:</span>
+                        <span id="stat-original">0 MB</span>
+                    </div>
+                    <div class="stat">
+                        <span>Final:</span>
+                        <span id="stat-final">0 MB</span>
+                    </div>
+                    <div class="stat saving">
+                        <span>Ahorro:</span>
+                        <span id="stat-saving">0%</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button id="open-folder-btn" class="secondary-btn">Abrir carpeta</button>
+                    <button id="reset-btn" class="text-btn">Comprimir otro</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 PDFcito - Ghostscript Powered</p>
+        </footer>
+    </div>
+    <script src="src/renderer.js"></script>
+</body>
+</html>

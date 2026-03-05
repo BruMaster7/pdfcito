@@ -1,0 +1,49 @@
+{
+  "name": "pdfcito",
+  "version": "1.0.0",
+  "description": "Comprime tus PDFs con facilidad",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "author": "Antigravity",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^34.3.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.pdfcito.app",
+    "productName": "PDFcito",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "bin/**/*",
+      "img/**/*",
+      "index.html",
+      "style.css"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Office"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "extraResources": [
+      {
+        "from": "bin",
+        "to": "bin",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+bin/gswin64c.exe
+bin/gs
+.DS_Store
+.env
+*.log
